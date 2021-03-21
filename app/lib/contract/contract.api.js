@@ -8,7 +8,7 @@ export class ContractAPI {
   }
 
   async getSigner() {
-   
+   await ethereum.request({method: 'eth_requestAccounts' });
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     return provider.getSigner();
   }
