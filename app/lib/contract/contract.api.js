@@ -35,6 +35,13 @@ export class ContractAPI {
   async getChairperson(){
     return this.contract.chairperson()
   }
+
+  async giveRightToVote(ethAddress, signer){
+    const contractWithSigner = await this.contract.connect(signer)
+    return contractWithSigner.giveRightToVote(ethAddress);
+  }
+
+
   async vote(participant, signer) {
     const contractWithSigner = await this.contract.connect(signer)
     return contractWithSigner.vote(participant);
