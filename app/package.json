@@ -10,6 +10,7 @@
     "postbuild": "next-on-netlify"
   },
   "dependencies": {
+    "next-on-netlify": "^2.8.7",
     "bootstrap": "^5.0.0-beta2",
     "ethers": "^5.0.32",
     "hex2ascii": "^0.0.3",
