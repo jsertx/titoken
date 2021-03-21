@@ -18,6 +18,20 @@ export class ContractAPI {
       .then(value => hex2ascii(value))
   }
 
+  getProposals() {
+    return this.contract.getProposals()
+      .then(([names, votes]) => {
+        const list = [];
+        names.forEach((name, i)=>{
+          list.push({
+            name: hex2ascii(name),
+            voteCount: votes[i].toNumber()
+          })
+        })
+        return list;
+      })
+  }
+
   async getChairperson(){
     return this.contract.chairperson()
   }

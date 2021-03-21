@@ -1,16 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { api } from '../lib/contract';
 
 
-// temporal until I can get proposals from contract
-const votingOptions = [
-    [0, 'Sergiu'],
-    [1, 'Tito'],
-    [2, 'Carlixu']
-];
-
 export default function VoteForm({ signer }) {
-    const [proposals, setProposals] = useState(votingOptions);
+    const [proposals, setProposals] = useState([]);
     const [votingError, setVotingError] = useState(null)
     const [chosenProposal, choseProposal] = useState(null)
 
@@ -26,7 +19,14 @@ export default function VoteForm({ signer }) {
     }
 
     const getVoteName = () => chosenProposal && votingOptions.find(opt => opt[0] == chosenProposal)[1];
-    const drawVotingOption = ([id, participant]) => <label key={id}><input onChange={(e) => choseProposal(event.target.value)} type="radio" name="participant" value={id} /> {participant}</label>
+    const drawVotingOption = ({name, voteCount}, id) => (
+        <label key={id}>
+            <input onChange={(e) => choseProposal(event.target.value)} type="radio" name="participant" value={id} /> {name} ({voteCount})
+        </label>
+    );
+    useEffect(async () => {
+        api.getProposals().then(setProposals);
+    }, []);
 
     return (
         <div className="card">

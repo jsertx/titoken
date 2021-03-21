@@ -41,6 +41,22 @@ contract Ballot {
             }));
         }
     }
+ 
+    /** 
+     * @dev Return proposalNames and proposalVotes
+     */
+    function getProposals() public view returns (bytes32[] memory, uint[] memory) {
+        bytes32[] memory proposalNames = new bytes32[](proposals.length);
+        uint[] memory proposalVotes = new uint[](proposals.length);
+
+        for (uint i = 0; i < proposals.length; i++) {
+            Proposal storage p =  proposals[i];
+            proposalNames[i] = p.name;
+            proposalVotes[i] = p.voteCount;
+        }
+
+        return (proposalNames, proposalVotes);
+    }
     
     /** 
      * @dev Give 'voter' the right to vote on this ballot. May only be called by 'chairperson'.

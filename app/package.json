@@ -6,7 +6,8 @@
     "dev": "npm run copy:abi && next dev",
     "copy:abi": "node abi-setup.js",
     "build": "npm run copy:abi && next build",
-    "start": "next start"
+    "start": "next start",
+    "postbuild": "next-on-netlify"
   },
   "dependencies": {
     "bootstrap": "^5.0.0-beta2",

@@ -1,7 +1,7 @@
 import abi from "./abi";
 
 export const contractConfig = {
-	address: '0x259f8505a0eaf074bbe28284ff4ea5b8b0ad99e2',
+	address: '0xbc24f37bd3c90caf53a801b3ec05e7b8d228fd8a',
 	abi,
 	network: 'ropsten'
 }
