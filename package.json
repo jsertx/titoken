@@ -1,0 +1,23 @@
+{
+  "name": "titoken",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:abi": "solcjs -o abi --abi ./contracts/Ballot.sol"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jsertx/titoken.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jsertx/titoken/issues"
+  },
+  "homepage": "https://github.com/jsertx/titoken#readme",
+  "devDependencies": {
+    "solc": "^0.8.2"
+  }
+}
