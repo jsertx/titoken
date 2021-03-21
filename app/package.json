@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "npm run copy:abi && next dev",
+    "copy:abi": "node abi-setup.js",
+    "build": "npm run copy:abi && next build",
     "start": "next start"
   },
   "dependencies": {
